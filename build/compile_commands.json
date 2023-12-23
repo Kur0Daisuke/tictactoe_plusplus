@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/user/Desktop/Abu/cplusplus-projects/tictactoe_plusplus/build",
+  "command": "C:\\msys32\\mingw32\\bin\\g++.exe -O3 -DNDEBUG -o CMakeFiles\\tictactoe.dir\\main.cpp.obj -c C:\\Users\\user\\Desktop\\Abu\\cplusplus-projects\\tictactoe_plusplus\\main.cpp",
+  "file": "C:\\Users\\user\\Desktop\\Abu\\cplusplus-projects\\tictactoe_plusplus\\main.cpp",
+  "output": "CMakeFiles\\tictactoe.dir\\main.cpp.obj"
+}
+]

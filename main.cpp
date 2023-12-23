@@ -86,20 +86,33 @@ void checkforwinners(int x, int y, int playerturn, int (*game)(int playerTurn, s
 	if((gameboard[y][x] == "X" || gameboard[y][x] == "O") &&
 		((gameboard[y][x] == gameboard[y][x+1>2?(x+1)-3:x+1]) && (gameboard[y][x+1>2?(x+1)-3:x+1] == gameboard[y][x+2>2?(x+2)-3:x+2])))
 	{
+		// X | X | X check
 		EndScreen(x,y,x+1>2?(x+1)-3:x+1,y,x+2>2?(x+2)-3:x+2,y,playerturn, game);
 	}else if((gameboard[y][x] == "X" || gameboard[y][x] == "O") &&
 		((gameboard[y][x] == gameboard[y+1>2?(y+1)-3:y+1][x]) && (gameboard[y+1>2?(y+1)-3:y+1][x] == gameboard[y+2>2?(y+2)-3:y+2][x]))) 
 	{
+		/*
+			X|
+			X|  check
+			X|
+		*/
+
 		EndScreen(x,y,x,y+1>2?(y+1)-3:y+1,x,y+2>2?(y+2)-3:y+2,playerturn, game);
 	}else if((gameboard[y][x] == "X" || gameboard[y][x] == "O") &&
-		(gameboard[y][x] == gameboard[y+1>2?(y+1)-3:y+1][x+1>2?(x+1)-3:x+1] &&
-		gameboard[y+1>2?(y+1)-3:y+1][x+1>2?(x+1)-3:x+1] == gameboard[y+2>2?(y+2)-3:y+2][x+2>2?(x+2)-3:x+2])) 
+		(gameboard[0][0] == gameboard[1][1] &&
+		gameboard[1][1] == gameboard[2][+2])) 
 	{
+		/* 
+			Cross check
+		*/
 		EndScreen(x,y,x+1>2?(x+1)-3:x+1,y+1>2?(y+1)-3:y+1,x+2>2?(x+2)-3:x+2,y+2>2?(y+2)-3:y+2,playerturn, game);
 	}else if((gameboard[y][x] == "X" || gameboard[y][x] == "O") &&
-		(gameboard[y][x] == gameboard[y+1>2?(y+1)-3:y+1][x-1<0?(x-1)+3:x-1] &&
-		gameboard[y+1>2?(y+1)-3:y+1][x-1<0?(x-1)+3:x-1] == gameboard[y+2>2?(y+2)-3:y+2][x-2<0?(x-2)+3:x-2])) 
+		(gameboard[0][2] == gameboard[1][1] &&
+		gameboard[1][1] == gameboard[2][0])) 
 	{
+		/*
+			Cross Check
+		*/
 		EndScreen(x,y,x-1<0?(x-1)+3:x-1,y+1>2?(y+1)-3:y+1,x-2<0?(x-2)+3:x-2,y+2>2?(y+2)-3:y+2,playerturn, game);
 	}else {
 		game(playerturn == 1 ? 2 : 1, "");
